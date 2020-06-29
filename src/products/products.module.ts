@@ -6,30 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, effects } from './store';
-
-// components
 import * as fromComponents from './components';
-
-// containers
 import * as fromContainers from './containers';
-
-// services
 import * as fromServices from './services';
 
-// routes
 export const ROUTES: Routes = [
   {
     path: '',
     component: fromContainers.ProductsComponent,
   },
   {
-    path: ':id',
-    component: fromContainers.ProductItemComponent,
-  },
-  {
     path: 'new',
     component: fromContainers.ProductItemComponent,
   },
+  {
+    path: ':pizzaId',
+    component: fromContainers.ProductItemComponent,
+  }
 ];
 
 @NgModule({
