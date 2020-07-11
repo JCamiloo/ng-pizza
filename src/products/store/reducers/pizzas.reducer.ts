@@ -16,10 +16,11 @@ export const initialState: PizzaState = {
 export function reducer(state = initialState, action: fromPizzas.PizzasAction): PizzaState {
   
   switch (action.type) {
-    case fromPizzas.LOAD_PIZZAS:
+    case fromPizzas.LOAD_PIZZAS: {
       return { ...state, loading: true, loaded: false };
+    }
       
-    case fromPizzas.LOAD_PIZZAS_SUCCESS:
+    case fromPizzas.LOAD_PIZZAS_SUCCESS: {
       const pizzas = action.payload;
       const entities = pizzas.reduce((entities: {[id: number]: Pizza}, pizza: Pizza) => {
         return {
@@ -30,12 +31,20 @@ export function reducer(state = initialState, action: fromPizzas.PizzasAction): 
         ...state.entities
       });
       return { ...state, entities, loading: false, loaded: true };
+    }
 
-    case fromPizzas.LOAD_PIZZAS_FAIL:
+    case fromPizzas.LOAD_PIZZAS_FAIL: {
       return { ...state, loading: false, loaded: false };
-      
+    }
+    
+    case fromPizzas.CREATE_PIZZA_SUCCESS: {
+      const pizza = action.payload;
+      const entities = { ...state.entities, [pizza.id]: pizza };
+      return { ...state, entities };
+    }
+
     default:
-      return state;
+      return { ...state };
   }
 }
 
