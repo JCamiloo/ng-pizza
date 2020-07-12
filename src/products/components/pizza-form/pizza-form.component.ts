@@ -7,21 +7,15 @@ import {
   SimpleChanges,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormArray,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
 
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
 
 @Component({
   selector: 'pizza-form',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-form.component.scss'],
   template: `
     <div class="pizza-form">
@@ -42,8 +36,6 @@ import { Topping } from '../../models/topping.model';
           </div>
         </label>
       
-        <ng-content></ng-content>
-
         <label>
           <h4>Select toppings</h4>
         </label>
