@@ -148,12 +148,12 @@
           "name": "mozzarella"
         },
         {
-          "id": 11,
-          "name": "sweetcorn"
-        },
-        {
           "id": 9,
           "name": "pepper"
+        },
+        {
+          "id": 11,
+          "name": "sweetcorn"
         }
       ],
       "id": 4
