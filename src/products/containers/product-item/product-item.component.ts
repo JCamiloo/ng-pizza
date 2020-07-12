@@ -59,5 +59,6 @@ export class ProductItemComponent implements OnInit {
   }
 
   onRemove(event: Pizza) {
+    this.store.dispatch(new fromStore.RemovePizza(event));
   }
 }
